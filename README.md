@@ -2,10 +2,10 @@
 
 A wrapper for [Angular CLI](https://cli.angular.io), this script bootstraps a new Angular project with the following:
 
-* [Bootstrap](https://v4-alpha.getbootstrap.com) version 4
+* [Bootstrap](https://getbootstrap.com) version 4-beta
 * [Angular Material](https://material.angular.io)
 * [Toastr](http://toastrjs.com)
-* [Font Awesome](http://fontawesome.io)
+* [Font Awesome](http://fontawesome.io) [Removed]
 
 The script overrides Angular CLI `ng new` defaults with the following:
 

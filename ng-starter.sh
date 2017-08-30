@@ -90,26 +90,25 @@ EOF
 
 
 # Font Awesome - Install 
-npm install --save font-awesome
+# npm install --save font-awesome
 
 # Font Awesome. - Add to _variables.scss
-cat <<EOF >>src/_variables.scss
-\$fa-font-path : '../node_modules/font-awesome/fonts';
+#cat <<EOF >>src/_variables.scss
+#\$fa-font-path : '../node_modules/font-awesome/fonts';
 
-EOF
+#EOF
 
 # Font Awesome - Add to styles.scss
-cat <<EOF >>src/styles.scss
-/* Font Awesome - http://fontawesome.io */
-@import '../node_modules/font-awesome/scss/font-awesome';
+#cat <<EOF >>src/styles.scss
+#/* Font Awesome - http://fontawesome.io */
+#@import '../node_modules/font-awesome/scss/font-awesome';
 
-EOF
-
+#EOF
 
 # Add JavaScript files
 sed -i.bak 's/"scripts": \[\]/"scripts": \[\
-\ \ \ \ \ \ \ \ \"..\/node_modules\/jquery\/dist\/jquery.min.js",\
-\ \ \ \ \ \ \ \ \"..\/node_modules\/tether\/dist\/js\/tether.min.js",\
+\ \ \ \ \ \ \ \ \"..\/node_modules\/jquery\/dist\/jquery.slim.min.js",\
+\ \ \ \ \ \ \ \ \"..\/node_modules\/popper.js\/dist\/umd\/popper.min.js",\
 \ \ \ \ \ \ \ \ \"..\/node_modules\/bootstrap\/dist\/js\/bootstrap.min.js",\
 \ \ \ \ \ \ \ \ \"..\/node_modules\/toastr\/build\/toastr.min.js"\
 \ \ \ \ \ \ \]/' .angular-cli.json
