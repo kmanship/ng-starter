@@ -51,8 +51,10 @@ cat <<EOF >src/_variables.scss
 
 EOF
 
-# Install Bootstrap (4.0.0-alpha.6)
+# Install Bootstrap (4.0.0-beta)
 npm install --save bootstrap@next
+npm install --save jquery
+npm install --save popper.js
 
 # Add Bootstrap styles to styles.scss
 cat <<EOF >>src/styles.scss
