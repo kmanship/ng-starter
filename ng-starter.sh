@@ -52,9 +52,7 @@ cat <<EOF >src/_variables.scss
 EOF
 
 # Install Bootstrap (4.0.0-beta)
-npm install --save jquery
-npm install --save popper.js
-npm install --save bootstrap@next
+npm install --save jquery popper.js bootstrap@next
 
 # Add Bootstrap styles to styles.scss
 cat <<EOF >>src/styles.scss
@@ -67,7 +65,7 @@ cat <<EOF >>src/styles.scss
 EOF
 
 # Angular Material - Install
-npm install --save @angular/material
+npm install --save @angular/cdk @angular/material
 npm install --save @angular/animations
 
 # Angular Material - Add to styles.scss
