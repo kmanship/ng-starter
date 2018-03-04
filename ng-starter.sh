@@ -51,8 +51,8 @@ cat <<EOF >src/_variables.scss
 
 EOF
 
-# Install Bootstrap (4.0.0-beta)
-npm install --save jquery popper.js bootstrap@next
+# Install Bootstrap (4.0.0)
+npm install --save jquery popper.js bootstrap
 
 # Add Bootstrap styles to styles.scss
 cat <<EOF >>src/styles.scss
@@ -65,8 +65,12 @@ cat <<EOF >>src/styles.scss
 EOF
 
 # Angular Material - Install
-npm install --save @angular/cdk @angular/material
+npm install --save @angular/material @angular/cdk
 npm install --save @angular/animations
+
+# Moment - Date Adapter
+npm install --save moment
+npm install --save @angular/material-moment-adapter
 
 # Angular Material - Add to styles.scss
 cat <<EOF >>src/styles.scss
@@ -77,38 +81,14 @@ cat <<EOF >>src/styles.scss
 
 EOF
 
-
-# Toastr - Install 
-npm install --save toastr
-
-# Toastr - Add to styles.scss
-cat <<EOF >>src/styles.scss
-/* Toastr - https://github.com/CodeSeven/toastr */
-@import '../node_modules/toastr/toastr';
-
-EOF
-
-
-# Font Awesome - Install 
-# npm install --save font-awesome
-
-# Font Awesome. - Add to _variables.scss
-#cat <<EOF >>src/_variables.scss
-#\$fa-font-path : '../node_modules/font-awesome/fonts';
-
-#EOF
-
-# Font Awesome - Add to styles.scss
-#cat <<EOF >>src/styles.scss
-#/* Font Awesome - http://fontawesome.io */
-#@import '../node_modules/font-awesome/scss/font-awesome';
-
-#EOF
-
 # Add JavaScript files
 sed -i.bak 's/"scripts": \[\]/"scripts": \[\
 \ \ \ \ \ \ \ \ \"..\/node_modules\/jquery\/dist\/jquery.slim.min.js",\
-\ \ \ \ \ \ \ \ \"..\/node_modules\/popper.js\/dist\/umd\/popper.min.js",\
-\ \ \ \ \ \ \ \ \"..\/node_modules\/bootstrap\/dist\/js\/bootstrap.min.js",\
-\ \ \ \ \ \ \ \ \"..\/node_modules\/toastr\/build\/toastr.min.js"\
+\ \ \ \ \ \ \ \ \"..\/node_modules\/bootstrap\/dist\/js\/bootstrap.min.js"\
 \ \ \ \ \ \ \]/' .angular-cli.json
+
+# Add locale and aot when starting server
+sed -i.bak 's/"ng serve"/"ng serve --aot --locale en-au"/' package.json
+
+# Add app.module template
+cp ../app.module.base  ./src/app/app.module.ts
